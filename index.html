@@ -1,429 +1,1389 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forensic Injury Audits | Maximize Case Value</title>
-    <link rel="icon" type="image/png" href="https://fliberti.github.io/dr-parker-cica/CICA-icon.png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Merriweather', 'serif'],
-                    },
-                    colors: {
-                        brand: {
-                            dark: '#0f172a', // Slate 900
-                            navy: '#1e293b', // Slate 800
-                            gold: '#fbbf24', // Amber 400
-                            goldhover: '#f59e0b', // Amber 500
-                            light: '#f8fafc', // Slate 50
-                        }
-                    }
+    <title>Personal Injury Examiner Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #0a1f3d;
+            background-color: #fafafa;
+        }
+
+        /* HERO SECTION */
+        .hero-section {
+            background-image: url('https://fliberti.github.io/dr-parker-cica/hero-background.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 800px;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 20, 40, 0.4);
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            position: relative;
+            z-index: 2;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Updated trust badge with transparent background and yellowish elements */
+        .trust-badge {
+            background-color: rgba(255, 255, 255, 0.1);
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            margin-bottom: 25px;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            color: #FFD700;
+        }
+
+        .hero-title {
+            font-size: 4em;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .highlight {
+            color: #FFD700;
+        }
+
+        .hero-description {
+            font-size: 1.5em;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .cta-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 50px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 14px 25px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.2), 
+                transparent
+            );
+            transition: left 0.7s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Primary button - transparent by default */
+        .btn-primary {
+            background-color: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        /* Primary button - blue background on hover */
+        .btn-primary:hover {
+            background-color: rgba(14, 32, 59, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Secondary button - transparent by default */
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Secondary button - subtle background on hover */
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .arrow {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover .arrow {
+            transform: translateX(3px);
+        }
+
+        .credentials {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .credential-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .credential-icon {
+            color: #FFD700;
+            font-size: 18px;
+        }
+
+        /* TRUSTED PARTNER SECTION */
+        .trusted-partner-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .certified-tag {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .certified-badge {
+            background-color: rgba(255, 215, 0, 0.15);
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            color: #9e7c0c;
+            border-radius: 20px;
+            padding: 5px 15px;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .certified-badge::before {
+            content: "★";
+            display: inline-block;
+            margin-right: 6px;
+            font-size: 12px;
+            color: #F5B700;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            font-weight: 700;
+            text-align: center;
+            color: #0a1f3d;
+            margin-bottom: 50px;
+        }
+
+        .expert-profile {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .profile-left {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .profile-image-container {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .certification-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 100px;
+            height: auto;
+        }
+
+        /* Text overlay inside the image */
+        .profile-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 25px 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0) 100%);
+            color: white;
+        }
+
+        .profile-name-overlay {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .certification-list-overlay {
+            list-style: none;
+        }
+
+        .certification-item-overlay {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3px;
+            font-size: 15px;
+            line-height: 1.3; /* Added to reduce vertical spacing */
+
+        }
+
+        .certification-item-overlay:before {
+            content: "•";
+            color: #FFD700;
+            display: inline-block;
+            margin-right: 8px;
+            font-size: 20px;
+        }
+
+        .profile-right {
+            flex: 1.5;
+            min-width: 300px;
+        }
+
+        .value-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #0a1f3d;
+        }
+
+        .value-description {
+            margin-bottom: 20px;
+            color: #555;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .value-description:last-of-type {
+            margin-bottom: 40px;
+        }
+
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .stat-card {
+            flex: 1;
+            min-width: 150px;
+            background-color: #e8e6d9;  /* Darkened from #f9f8f3 */
+            border: 1px solid #ff8c00;  /* Added orange border */
+            border-radius: 8px;
+            padding: 25px 15px;
+            text-align: center;
+        }
+
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: 700;
+            color: #F5B700;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Services section */
+        .services-section {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .service-card {
+            flex: 1;
+            background-color: white;
+            border: 1px solid #eaeaea;
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Added shadow */
+            transition: all 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        /* Hover effect for service cards */
+        .service-card:hover {
+            transform: translateY(-5px); /* Slight lift effect */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+            border-color: #ccc; /* Darker border on hover */
+        }
+
+        .service-icon {
+            width: 50px; /* Made slightly larger */
+            height: 50px; /* Made slightly larger */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: #0a1f3d;
+            font-size: 32px; /* Larger icon size */
+            transition: transform 0.3s ease; /* Animation for icon */
+        }
+
+        /* Icon animation on card hover */
+        .service-card:hover .service-icon {
+            transform: scale(1.1); /* Slightly enlarge icon on hover */
+            color: #F5B700; /* Change color on hover */
+        }
+
+        .service-title {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #0a1f3d;
+            transition: color 0.3s ease; /* Smooth color transition */
+        }
+
+        /* Title color change on hover */
+        .service-card:hover .service-title {
+            color: #F5B700; /* Change title color on hover */
+        }
+
+        .service-description {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* INSURANCE UNDERVALUE SECTION */
+        .insurance-section {
+            padding: 80px 20px;
+            background-color: #f5f7fa;
+            margin-top: 60px;
+        }
+
+        .insurance-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .problem-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(255, 99, 71, 0.1);
+            color: #ff6347;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .problem-badge::before {
+            content: "⚠";
+            margin-right: 5px;
+            font-size: 12px;
+        }
+
+        .undervalue-title {
+            font-size: 2.5em;
+            font-weight: 700;
+            text-align: center;
+            color: #0a1f3d;
+            margin-bottom: 15px;
+        }
+
+        .undervalue-highlight {
+            color: #ff6347;
+        }
+
+        .undervalue-subtitle {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            color: #555;
+            font-size: 16px;
+        }
+
+        .comparison-container {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        /* Updated comparison card to match image exactly */
+        .comparison-card {
+            flex: 1;
+            background-color: white;
+            border-radius: 16px;
+            padding: 30px;
+            position: relative;
+        }
+
+        /* Problem card with red border and shadow */
+        .problem-card {
+            border: 1px solid #ff6347;
+            box-shadow: 0 4px 12px rgba(255, 99, 71, 0.15);
+        }
+
+        /* Advantage card with yellow border and shadow */
+        .advantage-card {
+            border: 1px solid #F5B700;
+            box-shadow: 0 4px 12px rgba(245, 183, 0, 0.15);
+        }
+
+        /* Updated card header to match image */
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .card-icon-container {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .problem-icon-container {
+            background-color: #fff2f0;
+        }
+
+        .solution-icon-container {
+            background-color: #fffaeb; /* Made more yellowish */
+        }
+
+        .card-icon {
+            font-size: 24px;
+        }
+
+        .problem-icon {
+            color: #ff6347;
+        }
+
+        .solution-icon {
+            color: #F5B700; /* Made yellow to match the theme */
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 20px;
+            color: #0a1f3d;
+        }
+
+        .card-description {
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .issue-list {
+            list-style: none;
+        }
+
+        /* Red bullet points */
+        .issue-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .issue-item::before {
+            content: "•";
+            color: #ff6347;
+            margin-right: 10px;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        /* Orange/yellow bullet points */
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .benefit-item::before {
+            content: "•";
+            color: #F5B700;
+            margin-right: 10px;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .cta-banner {
+            background-color: #0a1f3d;
+            border-radius: 12px;
+            padding: 35px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* New CTA icon container */
+        .cta-icon-container {
+            width: 64px;
+            height: 64px;
+            background-color: rgba(255, 215, 0, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
+            flex-shrink: 0;
+        }
+
+        .cta-icon {
+            font-size: 32px;
+            color: #FFD700;
+        }
+
+        .cta-content {
+            flex: 1;
+        }
+
+        .cta-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .cta-description {
+            font-size: 1em;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 90%;
+            line-height: 1.6;
+        }
+
+        .cta-arrow {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFD700;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        /* CONTACT FORM SECTION */
+        .contact-section {
+            padding: 80px 20px;
+            background-color: #f8f9fc;
+            position: relative;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .get-started-badge {
+            background-color: rgba(255, 215, 0, 0.15);
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            color: #F5B700;
+            border-radius: 20px;
+            padding: 5px 15px;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .get-started-badge::before {
+            content: "○";
+            display: inline-block;
+            margin-right: 6px;
+            font-size: 14px;
+        }
+
+        .contact-title {
+            font-size: 2.8em;
+            font-weight: 700;
+            color: #0a1f3d;
+            margin-bottom: 15px;
+        }
+
+        .contact-description {
+            max-width: 700px;
+            margin: 0 auto 50px;
+            color: #555;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .contact-form-container {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* Contact boxes styling (for both contact info and form) */
+        .contact-box {
+            flex: 1;
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            text-align: left;
+        }
+
+        .box-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #0a1f3d;
+            margin-bottom: 25px;
+        }
+
+        /* Contact info section styling */
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-left: 10px;
+        }
+
+        .info-icon-container {
+            width: 40px;
+            height: 40px;
+            background-color: #f8f9fc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .info-icon {
+            color: #0a1f3d;
+            font-size: 18px;
+        }
+
+        .info-content {
+            flex: 1;
+        }
+
+        .info-label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #0a1f3d;
+            font-size: 15px;
+        }
+
+        .info-value {
+            color: #555;
+            font-size: 15px;
+        }
+
+        /* Form styling */
+        .contact-form {
+            width: 100%;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            flex: 1;
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #0a1f3d;
+            font-size: 14px;
+        }
+
+        .required-mark {
+            color: #ff6347;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 15px;
+            color: #333;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #0a1f3d;
+            box-shadow: 0 0 0 3px rgba(10, 31, 61, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: #0a1f3d;
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #0d2a54;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-disclaimer {
+            text-align: center;
+            color: #777;
+            font-size: 13px;
+            margin-top: 20px;
+        }
+
+        /* What to Expect Box */
+        .what-to-expect-container {
+            display: flex;
+            margin-top: 30px;
+        }
+
+        .expect-box {
+            flex: 1;
+            background-color: #fffcf0;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            text-align: left;
+            border: 1px solid rgba(245, 183, 0, 0.2);
+        }
+
+        .expect-box-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            color: #0a1f3d;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .expect-icon {
+            color: #F5B700;
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .expect-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .expect-step {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            width: 25px;
+            font-weight: 700;
+            color: #0a1f3d;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-title {
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #0a1f3d;
+            font-size: 15px;
+        }
+
+        .step-description {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* RESPONSIVE STYLING */
+        @media (max-width: 900px) {
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-description {
+                font-size: 16px;
+            }
+            
+            .cta-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .credentials {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+
+            .expert-profile {
+                flex-direction: column;
+            }
+
+            .profile-left, .profile-right {
+                width: 100%;
+            }
+            
+            .section-title {
+                font-size: 2em;
+            }
+            
+            .value-title {
+                font-size: 1.5em;
+            }
+
+            .services-section {
+                flex-direction: column;
+            }
+
+            .certification-badge {
+                width: 80px;
+            }
+
+            .comparison-container {
+                flex-direction: column;
+            }
+
+            .cta-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .cta-icon-container {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .cta-arrow {
+                margin-top: 20px;
+                transform: rotate(90deg);
+            }
+            
+            .contact-form-container {
+                flex-direction: column;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .contact-title {
+                font-size: 2em;
+            }
+            /* Add these styles to your CSS */
+            .left-column {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 30px; /* Increased from 20px to 30px for more space */
+            }
+
+            .case-form-card {
+                flex: 1;
+            }
+
+            /* If you're having any height matching issues, you can add this */
+            .contact-box, .expect-box {
+                height: auto;
+            }
+
+            /* Adjust responsive styling if needed */
+            @media (max-width: 900px) {
+                .left-column {
+                    width: 100%;
                 }
             }
-        }
-    </script>
-    <style>
-        .hero-pattern {
-            background-color: #0f172a;
-            background-image: radial-gradient(circle at 15% 50%, rgba(251, 191, 36, 0.08), transparent 25%), radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.05), transparent 25%);
-        }
-        .gradient-text {
-            background: linear-gradient(to right, #fbbf24, #fcd34d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+          
+          
+          
+          
+          
+          
         }
     </style>
 </head>
-<body class="font-sans text-gray-800 bg-brand-light antialiased m-0 p-0">
-
-    <!-- Navigation -->
-    <nav class="bg-brand-dark text-white py-4 px-6 md:px-12 fixed w-full z-50 shadow-lg border-b border-gray-800">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <i class="fa-solid fa-scale-balanced text-brand-gold text-2xl"></i>
-                <span class="font-serif text-xl font-bold tracking-tight">Forensic<span class="text-brand-gold">Injury</span>Audits</span>
+<body>
+    <!-- HERO SECTION -->
+    <header class="hero-section">
+        <div class="container">
+            <div class="trust-badge">
+                Trusted by Leading Personal Injury Attorneys
             </div>
-            <div class="hidden md:flex items-center gap-6 font-medium text-sm">
-                <a href="#how-it-works" class="hover:text-brand-gold transition-colors">How It Works</a>
-                <a href="#results" class="hover:text-brand-gold transition-colors">Case Studies</a>
-                <a href="#expert" class="hover:text-brand-gold transition-colors">Our Expert</a>
-                <a href="#audit" class="bg-brand-gold text-brand-dark px-5 py-2.5 rounded-md font-bold hover:bg-brand-goldhover transition-colors shadow-md">Get a Free Case Review</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section (The 7-Second Test) -->
-    <header class="hero-pattern pt-28 border-b-4 border-brand-gold overflow-hidden">
-        <div class="w-full max-w-[1920px] mx-auto flex flex-col md:flex-row items-stretch min-h-[70vh]">
             
-            <!-- Value Proposition Copy (Left Constrained) -->
-            <div class="w-full md:w-1/2 lg:w-7/12 flex justify-start md:items-center pl-6 md:pl-12 lg:pl-24 xl:pl-32 pr-6 md:pr-12 py-10 md:py-20">
-                <div class="w-full max-w-2xl space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-brand-gold text-sm font-semibold tracking-wide">
-                        <i class="fa-solid fa-chart-line"></i> For Plaintiff Attorneys Only
-                    </div>
-                    <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
-                        Stop Leaving Money on the Table. <br>
-                        <span class="gradient-text">Maximize Case Value.</span>
-                    </h1>
-                    <p class="text-lg md:text-xl text-gray-300 font-light leading-relaxed">
-                        Insurance software like Colossus routinely undervalues soft-tissue injuries. We provide <strong class="text-white font-semibold">Daubert-admissible Forensic Clinical Audits</strong> that translate complex medical data into undeniable, policy-limit economic damages.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                        <a href="#audit" class="bg-brand-gold text-brand-dark px-8 py-4 rounded-md font-bold text-lg text-center hover:bg-brand-goldhover transition-all shadow-[0_0_15px_rgba(251,191,36,0.4)]">
-                            Request a Case Audit
-                        </a>
-                        <a href="https://settlemax.aflip.in/d2ba9d5e03.html" class="bg-white/10 text-white border border-white/30 px-8 py-4 rounded-md font-semibold text-lg text-center hover:bg-white/20 transition-all flex items-center justify-center gap-2">
-                            <i class="fa-regular fa-file-lines"></i> See a Sample Forensic Audit
-                        </a>
-                    </div>
-                    <p class="text-sm text-gray-400 mt-2"><i class="fa-solid fa-shield-halved text-brand-gold mr-1"></i> No-Risk Initial Consultation. Confidentiality Guaranteed.</p>
-                </div>
-            </div>
-
-            <!-- Hero Image Replacement (Bleeds completely right) -->
-            <div class="w-full md:w-1/2 lg:w-5/12 flex items-end md:items-center justify-end mt-10 md:mt-0 pb-16 md:pb-20 lg:pb-24">
-                <a href="https://fast.wistia.net/embed/iframe/cqja6aw6uf" class="block w-full transition-transform duration-300 hover:opacity-95 drop-shadow-2xl text-right">
-                    <img 
-                        src="https://fliberti.github.io/dr-parker-cica/phone.png" 
-                        alt="Laptop and Phone displaying case value analysis" 
-                        class="w-full max-h-[50vh] md:max-h-[85vh] object-contain object-right ml-auto"
-                    />
+            <h1 class="hero-title">
+                Get <span class="highlight">Higher Case Value</span><br>
+                for Every Injury Client
+            </h1>
+            
+            <p class="hero-description">
+                Certified Personal Injury Examiner partnering
+                with attorneys to build stronger, higher-value
+                cases through forensic-level documentation.
+            </p>
+            
+            <div class="cta-container">
+                <a href="#contact-section" class="btn btn-primary">
+                    See a Sample Forensic Report <span class="arrow">→</span>
                 </a>
             </div>
-
+            
+            <div class="credentials">
+                <div class="credential-item">
+                    <span class="credential-icon">★</span>
+                    <span class="credential-text">40+ Years Experience</span>
+                </div>
+                <div class="credential-item">
+                    <span class="credential-icon">✓</span>
+                    <span class="credential-text">Certified Personal Injury Examiner (CPIE)</span>
+               </div>
+                <div class="credential-item">
+                    <span class="credential-icon">✓</span>
+                    <span class="credential-text">Injury Model Examination</span>
+                </div>
+            </div>
         </div>
     </header>
 
-    <!-- Social Proof / Stats Bar -->
-    <section class="bg-white border-b border-gray-200 shadow-sm relative z-10 -mt-6 mx-4 md:mx-auto max-w-6xl rounded-lg">
-        <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200">
-            <div class="p-8 text-center">
-                <div class="text-4xl font-bold text-brand-dark mb-2">$40K - $50K</div>
-                <div class="text-sm text-gray-500 font-medium uppercase tracking-wide">Average Value Added Per MIST Case</div>
-            </div>
-            <div class="p-8 text-center">
-                <div class="text-4xl font-bold text-brand-dark mb-2">4.5x</div>
-                <div class="text-sm text-gray-500 font-medium uppercase tracking-wide">Average Settlement Uplift</div>
-            </div>
-            <div class="p-8 text-center">
-                <div class="text-4xl font-bold text-brand-dark mb-2">90%</div>
-                <div class="text-sm text-gray-500 font-medium uppercase tracking-wide">Increase on Post-Surgical Claims</div>
-            </div>
+    <!-- TRUSTED PARTNER SECTION -->
+    <section class="trusted-partner-section">
+        <div class="certified-tag">
+            <div class="certified-badge">Certified Expert</div>
         </div>
-    </section>
-
-    <!-- The Problem & Solution (Education Phase) -->
-    <section id="how-it-works" class="py-24 px-6 md:px-12 bg-brand-light">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-brand-gold font-bold tracking-widest uppercase text-sm mb-3">The Forensic Advantage</h2>
-                <h3 class="font-serif text-3xl md:text-4xl text-brand-dark font-bold mb-6">Why Standard Medical Records Fail You In Settlement Negotiations</h3>
-                <p class="text-gray-600 text-lg leading-relaxed">
-                    Doctors document treatment, not economic loss. By relying solely on medical notes, you are letting the defense dictate the narrative. We bridge the gap between medical reality and legal valuation.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Pillar 1 -->
-                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
-                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center text-2xl mb-6">
-                        <i class="fa-solid fa-magnifying-glass-chart"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-brand-dark mb-4">1. Uncover What Medicine Misses</h4>
-                    <p class="text-gray-600 leading-relaxed">
-                        Standard exams leave invisible injuries behind. Our audit uses proprietary trauma inventories to identify missed diagnoses (pain interference, emotional disorders, loss of independence) that hold massive compensable value under the law.
-                    </p>
-                </div>
-
-                <!-- Pillar 2 -->
-                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow relative transform md:-translate-y-4 border-t-4 border-t-brand-gold">
-                    <div class="w-14 h-14 bg-amber-50 text-brand-goldhover rounded-lg flex items-center justify-center text-2xl mb-6">
-                        <i class="fa-solid fa-file-invoice-dollar"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-brand-dark mb-4">2. Quantify the Economic Loss</h4>
-                    <p class="text-gray-600 leading-relaxed">
-                        We don't rely on subjective pain descriptors. We apply forensic clinical economics—using AMA Guides and U.S. Bureau of Labor Statistics data—to translate loss of function and future medical needs into exact, quantifiable monetary terms.
-                    </p>
-                </div>
-
-                <!-- Pillar 3 -->
-                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
-                    <div class="w-14 h-14 bg-green-50 text-green-600 rounded-lg flex items-center justify-center text-2xl mb-6">
-                        <i class="fa-solid fa-gavel"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-brand-dark mb-4">3. Deliver Bulletproof Evidence</h4>
-                    <p class="text-gray-600 leading-relaxed">
-                        Every data point aligns with Federal Rules of Evidence 702 and Daubert/Frye admissibility standards. We provide you with objective, reproducible proof that destroys defense low-ball tactics in mediation and court.
-                    </p>
-                </div>
-            </div>
+        
+        <h2 class="section-title">Your Trusted Partner in Case Documentation</h2>
+        
+        <div class="expert-profile">
+            <div class="profile-left" style="width: 100%; max-width: 500px; margin: 0 auto;">
+    <div class="profile-image-container" style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+        <img src="https://fliberti.github.io/dr-parker-cica/jeff-parker.webp" alt="Dr. Jeff Parker" style="width: 100%; height: auto; display: block; transition: transform 1s ease;">
+        
+        <img src="https://fliberti.github.io/dr-parker-cica/cpie-logo.png" alt="CPIE Certification" style="position: absolute; top: 15px; right: 15px; width: 85px; height: auto; filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2)); z-index: 2; transition: transform 0.3s ease;">
+        
+        <!-- Text overlay directly on the image -->
+        <div class="profile-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0) 100%); padding: 30px 20px 20px; color: white; text-align: left;">
+            <h3 style="margin: 0 0 8px 0; font-size: 24px; font-weight: 600; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Jeff Parker, D.C.</h3>
+            <ul style="list-style: none; margin: 0; padding: 0;">
+                <li style="font-size: 16px; opacity: 0.9; margin-bottom: 4px; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">Certified Personal Injury Examiner (CPIE®)</li>
+            </ul>
         </div>
-    </section>
-
-    <!-- Case Studies / Results -->
-    <section id="results" class="py-24 px-6 md:px-12 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-                <div class="max-w-2xl">
-                    <h2 class="text-brand-gold font-bold tracking-widest uppercase text-sm mb-3">Proven Track Record</h2>
-                    <h3 class="font-serif text-3xl md:text-4xl text-brand-dark font-bold">Results That Speak For Themselves</h3>
-                </div>
-                <p class="text-gray-500 font-medium bg-gray-50 px-4 py-2 rounded border border-gray-200">
-                    <i class="fa-solid fa-arrow-trend-up text-green-600 mr-2"></i> Consistent 4x-5x Case Value Increases
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Case 1 -->
-                <div class="border border-gray-200 rounded-xl p-8 bg-gradient-to-br from-white to-gray-50 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-brand-gold text-brand-dark font-bold px-4 py-1 text-sm rounded-bl-lg">Policy Limits Achieved</div>
-                    <h4 class="text-xl font-bold text-brand-dark border-b border-gray-200 pb-4 mb-6">MIST Soft Tissue</h4>
-                    <div class="flex items-center justify-between mb-4">
-                        <div>
-                            <p class="text-sm text-gray-500 font-medium uppercase">Initial Offer</p>
-                            <p class="text-2xl font-bold text-gray-400 line-through decoration-red-500/50">$16,000</p>
-                        </div>
-                        <i class="fa-solid fa-arrow-right text-gray-300 text-2xl"></i>
-                        <div class="text-right">
-                            <p class="text-sm text-gray-800 font-bold uppercase">After Forensic Audit</p>
-                            <p class="text-4xl font-black text-green-600">$100,000</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Case 2 -->
-                <div class="border border-gray-200 rounded-xl p-8 bg-gradient-to-br from-white to-gray-50 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-brand-gold text-brand-dark font-bold px-4 py-1 text-sm rounded-bl-lg">Full Economic Loss Recovered</div>
-                    <h4 class="text-xl font-bold text-brand-dark border-b border-gray-200 pb-4 mb-6">Post-Surgical Cervical</h4>
-                    <div class="flex items-center justify-between mb-4">
-                        <div>
-                            <p class="text-sm text-gray-500 font-medium uppercase">Initial Offer</p>
-                            <p class="text-2xl font-bold text-gray-400 line-through decoration-red-500/50">$65,000</p>
-                        </div>
-                        <i class="fa-solid fa-arrow-right text-gray-300 text-2xl"></i>
-                        <div class="text-right">
-                            <p class="text-sm text-gray-800 font-bold uppercase">After Forensic Audit</p>
-                            <p class="text-4xl font-black text-green-600">$320,000</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Case 3 -->
-                <div class="border border-gray-200 rounded-xl p-8 bg-gradient-to-br from-white to-gray-50 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-gray-800 text-white font-bold px-4 py-1 text-sm rounded-bl-lg">Future Care Costs Included</div>
-                    <h4 class="text-xl font-bold text-brand-dark border-b border-gray-200 pb-4 mb-6">Lumbar Disc Herniation</h4>
-                    <div class="flex items-center justify-between mb-4">
-                        <div>
-                            <p class="text-sm text-gray-500 font-medium uppercase">Initial Offer</p>
-                            <p class="text-2xl font-bold text-gray-400 line-through decoration-red-500/50">$45,000</p>
-                        </div>
-                        <i class="fa-solid fa-arrow-right text-gray-300 text-2xl"></i>
-                        <div class="text-right">
-                            <p class="text-sm text-gray-800 font-bold uppercase">After Forensic Audit</p>
-                            <p class="text-4xl font-black text-green-600">$175,000</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Case 4 -->
-                <div class="border border-gray-200 rounded-xl p-8 bg-gradient-to-br from-white to-gray-50 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-gray-800 text-white font-bold px-4 py-1 text-sm rounded-bl-lg">Federal Expectancy Analysis</div>
-                    <h4 class="text-xl font-bold text-brand-dark border-b border-gray-200 pb-4 mb-6">TBI with Cognitive Impact</h4>
-                    <div class="flex items-center justify-between mb-4">
-                        <div>
-                            <p class="text-sm text-gray-500 font-medium uppercase">Initial Offer</p>
-                            <p class="text-2xl font-bold text-gray-400 line-through decoration-red-500/50">$125,000</p>
-                        </div>
-                        <i class="fa-solid fa-arrow-right text-gray-300 text-2xl"></i>
-                        <div class="text-right">
-                            <p class="text-sm text-gray-800 font-bold uppercase">After Forensic Audit</p>
-                            <p class="text-4xl font-black text-green-600">$640,000</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Expert Profile -->
-    <section id="expert" class="py-24 px-6 md:px-12 bg-brand-navy text-white">
-        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
-            <div class="lg:w-1/3 relative">
-                <div class="absolute -inset-4 bg-brand-gold/20 rounded-2xl transform rotate-3"></div>
-                <!-- Expert Headshot -->
-                <img src="https://fliberti.github.io/dr-parker-cica/jeff-parker.webp" alt="Dr. Jeff Parker" class="relative rounded-2xl shadow-2xl object-cover w-full border-2 border-gray-600">
-                <div class="absolute -bottom-6 -right-6 flex gap-2">
-                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-brand-gold overflow-hidden">
-                        <img src="https://fliberti.github.io/dr-parker-cica/cpie-logo.png" alt="CPIE Badge" class="w-full h-full object-contain p-1.5" onerror="this.src='https://fliberti.github.io/dr-parker-cica/cpie-logo.png'">
-                    </div>
-                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-brand-gold overflow-hidden">
-                        <img src="https://fliberti.github.io/dr-parker-cica/CICAv2-purple.png" alt="CICA Badge" class="w-full h-full object-contain p-1.5" onerror="this.src='https://fliberti.github.io/dr-parker-cica/CICAv2-purple.webp'">
-                    </div>
-                </div>
-            </div>
+    </div>
+</div>
             
-            <div class="lg:w-2/3">
-                <h2 class="text-brand-gold font-bold tracking-widest uppercase text-sm mb-2">Lead Analyst & Expert Witness</h2>
-                <h3 class="font-serif text-3xl md:text-5xl font-bold mb-4">Meet Dr. Jeff Parker</h3>
-                <p class="text-xl text-gray-300 mb-8 font-light italic">DC, CICA, CPIE • Forensic Clinical Economist & Certified Injury Claim Auditor</p>
+            <div class="profile-right">
+                <h3 class="value-title">Strengthening Case Value Through Evidence</h3>
                 
-                <p class="text-gray-300 leading-relaxed mb-8 text-lg">
-                    As a dual-certified professional combining clinical expertise with specialized forensic training, I bridge the gap between medical reality and legal valuation. My forensic audits have helped attorneys recover millions of dollars left on the table in previously undervalued settlements.
+                <p class="value-description">
+                    <strong>Dr. Jeff Parker</strong> stands at the intersection of medicine, law, and technology—helping attorneys transform clinical complexity into courtroom clarity.</p>
+              
+<p class="value-description">As a <strong>Certified Personal Injury Examiner (CPIE)</strong>, he provides a higher forensic-level documentation that meets the evidentiary rigor modern litigation demands.   </p>
+  
+              <p class="value-description">Each clinical case assessment includes the use of Trauma Inventories, with diagnoses search engine to unlock overlooked nuanced and threshold diagnoses and translate injuries into <strong>objective impairment findings</strong>, correlating them with functional loss, and translating them into <strong>admissible, evidence-based reports</strong> that elevate both case value and professional credibility. </p>
+
+              <p class="value-description">Dr. Parker’s work bridges the critical gap between medical records and legal sufficiency—empowering attorneys to argue from data, not conjecture. 
                 </p>
-
-                <ul class="grid md:grid-cols-2 gap-4 text-gray-200">
-                    <li class="flex items-center gap-3">
-                        <i class="fa-solid fa-check-circle text-brand-gold"></i> Certified Injury Claim Auditor (CICA)
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <i class="fa-solid fa-check-circle text-brand-gold"></i> Certified Personal Injury Examiner (CPIE)
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <i class="fa-solid fa-check-circle text-brand-gold"></i> Forensic Clinical Economics Specialist
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <i class="fa-solid fa-check-circle text-brand-gold"></i> 40+ Years PI Valuation Experience
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <i class="fa-solid fa-check-circle text-brand-gold"></i> Expert Witness Testimony Experience
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <i class="fa-solid fa-check-circle text-brand-gold"></i> Member, Academy of Injury Claim Auditors
-                    </li>
-                </ul>
-
-                <blockquote class="mt-10 border-l-4 border-brand-gold pl-6 py-2 text-gray-400 font-serif italic text-lg">
-                    "Every case deserves forensic precision. Insurance companies use complex algorithms to minimize payouts — we use forensic clinical economics to maximize rightful compensation."
-                </blockquote>
-            </div>
-        </div>
-    </section>
-
-    <!-- Lead Capture / Contact Form -->
-    <section id="audit" class="py-24 mb-16 md:mb-24 px-6 md:px-12 bg-gray-50">
-        <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row">
-            
-            <!-- Left Side / Info -->
-            <div class="bg-brand-dark p-10 text-white md:w-2/5 flex flex-col justify-between">
-                <div>
-                    <h3 class="font-serif text-3xl font-bold mb-4">Request a Case Audit</h3>
-                    <p class="text-gray-300 leading-relaxed mb-8">
-                        Let's uncover the true value of your case. Submit your information below and our team will be in touch within 24 hours to discuss how we can assist your firm.
-                    </p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <i class="fa-solid fa-phone mt-1 text-brand-gold"></i>
-                            <div>
-                                <p class="font-bold">Phone</p>
-                                <p class="text-gray-400">(303) 758-0224</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <i class="fa-solid fa-envelope mt-1 text-brand-gold"></i>
-                            <div>
-                                <p class="font-bold">Email</p>
-                                <p class="text-gray-400">drjtparker@gmail.com
-</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <i class="fa-solid fa-location-dot mt-1 text-brand-gold"></i>
-                            <div>
-                                <p class="font-bold">Location</p>
-                                <p class="text-gray-400">7200 E. Hampden Ave #103 <br>Denver, CO 80224</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
+                <p class="value-description">
+                    <i>Request a complimentary sample injury report</i> to see how CPIE-certified evidence strengthens case proof and substantiates true claim value.
+                </p>
                 
               
             </div>
+        </div>
 
-            <!-- Right Side / Form -->
-            <div class="p-10 md:w-3/5">
-                <!-- FORMSPREE INTEGRATION -->
-                <form action="https://formspree.io/f/mbdwqpqq" method="POST"
-                      onsubmit="
-                        var emailInput = document.getElementById('email');
-                        var replytoInput = document.getElementById('replyToEmail');
-                        if (emailInput && replytoInput) {
-                          replytoInput.value = emailInput.value;
-                        }
-                      " class="space-y-5">
-                    
-                    <!-- Formspree special fields -->
-                    <input type="hidden" name="_replyto" id="replyToEmail" value="">
-                    <input type="hidden" name="_subject" value="Confirmation: Your Case Audit Request Has Been Received">
-                    <input type="hidden" name="_from" value="Dr. Jeff Parker, DC, CICA, CPIE">
-                    <input type="hidden" name="_cc" value="raphaelmangadap@gmail.com,f_liberti@msn.com,rivertownhw@hotmail.com">
-                    
-                    <div class="grid grid-cols-2 gap-5">
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-1">Attorney Name <span class="text-red-500">*</span></label>
-                            <input type="text" placeholder="John Doe" name="attorney_name" required class="w-full border border-gray-300 px-4 py-2.5 rounded-md focus:ring-2 focus:ring-brand-gold focus:border-brand-gold outline-none transition-colors">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-1">Law Firm</label>
-                            <input type="text" placeholder="Doe & Associates" name="law_firm" class="w-full border border-gray-300 px-4 py-2.5 rounded-md focus:ring-2 focus:ring-brand-gold focus:border-brand-gold outline-none transition-colors">
-                        </div>
-                    </div>
-                    
-                    <div class="grid grid-cols-2 gap-5">
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-1">Email Address <span class="text-red-500">*</span></label>
-                            <input type="email" id="email" placeholder="john@lawfirm.com" name="email" required class="w-full border border-gray-300 px-4 py-2.5 rounded-md focus:ring-2 focus:ring-brand-gold focus:border-brand-gold outline-none transition-colors">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-1">Phone Number</label>
-                            <input type="tel" placeholder="(555) 123-4567" name="phone_number" class="w-full border border-gray-300 px-4 py-2.5 rounded-md focus:ring-2 focus:ring-brand-gold focus:border-brand-gold outline-none transition-colors">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-1">Case Summary <span class="text-red-500">*</span></label>
-                        <textarea rows="4" placeholder="Brief description of the injury case, including type of injury, current valuation concerns, and any specific areas needing forensic analysis..." name="case_summary" required class="w-full border border-gray-300 px-4 py-3 rounded-md focus:ring-2 focus:ring-brand-gold focus:border-brand-gold outline-none transition-colors resize-none"></textarea>
-                    </div>
-
-                    <div class="flex flex-col items-center justify-center text-center w-full mt-6">
-                        <button type="submit" class="w-full bg-brand-gold hover:bg-brand-goldhover text-brand-dark font-bold text-lg py-4 rounded-md transition-colors shadow-md">
-                            Request Case Audit
-                        </button>
-                        <p class="mt-4 text-sm text-gray-600">We'll respond within 24 hours with next steps for your forensic case audit.</p>
-                    </div>
-                    
-                    <div class="mt-4 bg-blue-50 border border-blue-100 p-4 rounded-lg flex flex-col items-center text-center">
-                        <p class="text-sm font-bold text-brand-dark flex items-center gap-2 mb-1">
-                            <i class="fa-solid fa-lock text-brand-gold"></i> Confidential Consultation
-                        </p>
-                        <p class="text-xs text-gray-500 font-medium">All case discussions are protected by professional confidentiality standards.</p>
-                    </div>
-                </form>
+        <!-- Services section -->
+        <div class="services-section">
+            <div class="service-card">
+                <div class="service-icon">⚖️</div>
+                <h4 class="service-title">Forensic-Level Documentation</h4>
+                <p class="service-description">Detailed medical analysis that withstands legal scrutiny</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🏅</div>
+                <h4 class="service-title">Certified Expert Testimony</h4>
+                <p class="service-description">CPIE™ credentials recognized nationwide</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">📄</div>
+                <h4 class="service-title">Admissible Reports</h4>
+                <p class="service-description">Evidence-based documentation that increases settlements</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-brand-dark text-gray-400 py-12 px-6 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-2">
-                <i class="fa-solid fa-scale-balanced text-brand-gold text-xl"></i>
-                <span class="font-serif text-lg font-bold text-white tracking-tight">Forensic<span class="text-brand-gold">Injury</span>Audits</span>
+    <!-- WHY INSURANCE COMPANIES UNDERVALUE INJURIES SECTION -->
+    <section class="insurance-section">
+        <div class="insurance-container">
+            <div style="text-align: center;">
+                <div class="problem-badge">The Problem</div>
             </div>
-            <p class="text-sm text-center md:text-left">
-                &copy; 2026 Forensic Injury Audits. All rights reserved. <br>
-                <span class="text-xs text-gray-600 mt-2 block">Professional services provided by a licensed chiropractor with specialized certifications in injury claim auditing and forensic clinical economics. Not legal advice. Attorney-client relationships remain between attorneys and their clients.</span>
+            
+            <h2 class="undervalue-title">
+                Why Insurance Companies <span class="undervalue-highlight">Undervalue</span> Injuries
+            </h2>
+            
+            <p class="undervalue-subtitle">
+                Standard medical documentation often misses the forensic detail needed to
+                prove injury severity, mechanism, and permanency.
             </p>
+            
+            <div class="comparison-container">
+                <!-- Problem Card with RED border and shadow -->
+                <div class="comparison-card problem-card">
+                    <div class="card-header">
+                        <div class="card-icon-container problem-icon-container">
+                            <div class="card-icon problem-icon">⏱</div>
+                        </div>
+                        <h3 class="card-title">Standard Documentation Falls Short</h3>
+                    </div>
+                    <p class="card-description">
+                        Routine treatment notes focus on therapy progress, not 
+                        legal proof. They lack causation analysis, impairment
+                        metrics, and non-economic loss documentation.
+                    </p>
+                    
+                    <ul class="issue-list">
+                        <li class="issue-item">Missing mechanism of injury analysis</li>
+                        <li class="issue-item">No permanency assessment or impairment ratings</li>
+                        <li class="issue-item">Incomplete non-economic damage documentation</li>
+                        <li class="issue-item">Weak causation arguments under Daubert/Frye standards</li>
+                    </ul>
+                </div>
+                
+                <!-- Solution Card with YELLOW border and shadow -->
+                <div class="comparison-card advantage-card">
+                    <div class="card-header">
+                        <div class="card-icon-container solution-icon-container">
+                            <div class="card-icon solution-icon">✓</div>
+                        </div>
+                        <h3 class="card-title">The CPIE™ Advantage</h3>
+                    </div>
+                    <p class="card-description">
+                        Forensic chiropractic evaluation connecting clinical 
+                        findings to legal standards. Complete documentation 
+                        that increases settlements.
+                    </p>
+                    
+                    <ul class="issue-list">
+                        <li class="benefit-item">Comprehensive causation analysis with biomechanical evidence</li>
+                        <li class="benefit-item">Admissible impairment ratings and permanency assessments</li>
+                        <li class="benefit-item">Detailed functional capacity evaluations</li>
+                        <li class="benefit-item">Reports structured to withstand legal challenges</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- CTA Banner with icon added to the left -->
+            <div class="cta-banner">
+                <div class="cta-icon-container">
+                    <div class="cta-icon">💰</div>
+                </div>
+                <div class="cta-content">
+                    <h3 class="cta-title">Helping Attorneys Win Bigger, Fairer Settlements</h3>
+                    <p class="cta-description">
+                        Trauma Inventories with diagnoses search engine transforming overlooked non-economic damages into impairments that provides admissible evidence that strengthens your case and justifies higher compensation. Every report is designed to withstand carrier scrutiny and support maximum case value.
+                    </p>
+                </div>
+                <div class="cta-arrow">→</div>
+            </div>
         </div>
-    </footer>
+    </section>
 
+  
+  
+  
+  
+<!-- CONTACT FORM SECTION -->
+<section class="contact-section" id="contact-section">
+    <div class="contact-container">
+        <div class="get-started-badge">Get Started Today</div>
+        
+        <h2 class="contact-title">Request a Sample Impairment Report</h2>
+        
+        <p class="contact-description">
+            See how forensic-level documentation can elevate your next demand
+            and maximize your client's settlement.
+        </p>
+        
+        <div class="contact-form-container">
+            <!-- Left Column with inline styles -->
+            <div style="flex: 1; display: flex; flex-direction: column; gap: 30px;">
+                <!-- Contact Information Card -->
+                <div class="contact-box">
+                    <h3 class="box-title">Contact Information</h3>
+                    
+                    <div class="contact-info-item">
+                        <div class="info-icon-container">
+                            <div class="info-icon">📱</div>
+                        </div>
+                        <div class="info-content">
+                            <div class="info-label">Phone</div>
+                            <div class="info-value">(303) 758-0224 </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="info-icon-container">
+                            <div class="info-icon">✉️</div>
+                        </div>
+                        <div class="info-content">
+                            <div class="info-label">Email</div>
+                            <div class="info-value">drjtparker@gmail.com</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="info-icon-container">
+                            <div class="info-icon">📍</div>
+                        </div>
+                        <div class="info-content">
+                            <div class="info-label">Location</div>
+                            <div class="info-value">1012 South Wall Street
+
+
+<br>Denver, CO 30701</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="info-icon-container">
+                            <div class="info-icon">⏱</div>
+                        </div>
+                        <div class="info-content">
+                            <div class="info-label">Response Time</div>
+                            <div class="info-value">Within 24 hours</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- What to Expect Box -->
+                <div class="expect-box">
+                    <h3 class="expect-box-title">
+                        <span class="expect-icon">○</span>
+                        What to Expect
+                    </h3>
+                    
+                    <div class="expect-steps">
+                        <div class="expect-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <div class="step-title">Quick Review</div>
+                                <div class="step-description">We'll review your case details within 24 hours</div>
+                            </div>
+                        </div>
+                        
+                        <div class="expect-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <div class="step-title">Consultation</div>
+                                <div class="step-description">Brief discussion about documentation needs</div>
+                            </div>
+                        </div>
+                        
+                        <div class="expect-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <div class="step-title">Expert Report</div>
+                                <div class="step-description">Receive forensic documentation that strengthens your demand</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column: Case Details Form -->
+            <div class="contact-box" style="flex: 1;">
+                <h3 class="box-title">Send Us Your Case Details</h3>
+                
+<form action="https://formspree.io/f/mbdwqpqq" method="POST"
+      onsubmit="
+        var emailInput = document.getElementById('email');
+        var replytoInput = document.getElementById('replyToEmail');
+        if (emailInput && replytoInput) {
+          replytoInput.value = emailInput.value;
+        }
+      ">
+
+    <!-- Formspree special fields -->
+    <input type="hidden" name="_replyto" id="replyToEmail" value="">
+    <input type="hidden" name="_subject" value="Confirmation: Your Case Audit Request Has Been Received">
+    <input type="hidden" name="_from" value="Dr. Jeff Parker, DC, CICA, CPIE">
+    <input type="hidden" name="_cc" value="raphaelmangadap@gmail.com,f_liberti@msn.com">
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="your-name" class="form-label">Your Name <span class="required-mark">*</span></label>
+            <input type="text" id="your-name" name="attorney_name" class="form-control" placeholder="Attorney Name" required>
+        </div>
+        <div class="form-group">
+            <label for="law-firm" class="form-label">Law Firm</label>
+            <input type="text" id="law-firm" name="law_firm" class="form-control" placeholder="Your Law Firm Name">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="email" class="form-label">Email <span class="required-mark">*</span></label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="attorney@lawfirm.com" required>
+        </div>
+        <div class="form-group">
+            <label for="phone" class="form-label">Phone <span class="required-mark">*</span></label>
+            <input type="tel" id="phone" name="phone_number" class="form-control" placeholder="(555) 123-4567" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="case-summary" class="form-label">Brief Case Summary</label>
+        <textarea id="case-summary" name="case_summary" class="form-control" placeholder="Brief description of the injury case and what documentation support you need..."></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">Submit Case Review Request</button>
+</form>
+                
+                <div class="form-disclaimer">
+                    By submitting this form, you agree to be contacted regarding your case review request.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+  
+<!-- FOOTER SECTION -->
+<footer style="background-color: #0a1f3d; color: white; padding: 40px 20px 20px; width: 100%;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column;">
+        <!-- Main Footer Content -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 25px;">
+            <!-- Logo -->
+            <div style="margin-right: 20px; min-width: 80px;">
+                <img src="https://fliberti.github.io/dr-parker-cica/cpie-logo.png" alt="Dr. Frank Liberti Logo" style="width: 80px; height: auto;">
+            </div>
+            
+            <!-- Center Info -->
+            <div style="flex: 1; text-align: center; padding: 0 20px;">
+                <div style="font-size: 18px; font-weight: 600; margin-bottom: 5px;">Jeff Parker, D.C.</div>
+                <div style="font-size: 14px; color: rgba(255, 255, 255, 0.85);">Certified Personal Injury Examiner</div>
+            </div>
+            
+            <!-- Contact Info -->
+            <div style="text-align: right; font-size: 14px;">
+                <div style="margin-bottom: 5px;">(303) 758-0224</div>
+                <div style="margin-bottom: 5px;">drjtparker@gmail.com
+</div>
+                <div>Denver, CO
+</div>
+            </div>
+        </div>
+        
+        <!-- Divider Line -->
+        <div style="height: 1px; background-color: rgba(255, 255, 255, 0.2); margin: 20px 0;"></div>
+        
+        <!-- Copyright -->
+        <div style="text-align: center; font-size: 13px; color: rgba(255, 255, 255, 0.7); padding: 10px 0;">
+            © 2026 Jeff Parker, D.C.. All rights reserved.
+        </div>
+    </div>
+</footer>
+  
+  
+  
 </body>
 </html>
